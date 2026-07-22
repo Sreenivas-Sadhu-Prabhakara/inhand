@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+  <title>inhand — CTC to in-hand salary calculator, every deduction cited</title>
+  <meta name="description" content="Convert your Indian CTC into an honest, line-by-line monthly in-hand salary — EPF, EPS, gratuity, professional tax and TDS, each citing the statutory rule it comes from. AY 2026-27. Private: your salary never leaves this browser.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://sreenivas-sadhu-prabhakara.github.io/inhand/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Sreenivas Sadhu Prabhakara">
+  <meta name="keywords" content="ctc to in hand salary calculator, in hand salary calculator india, take home salary calculator, ctc breakup calculator, epf eps calculation, professional tax calculator, new tax regime AY 2026-27, salary calculator with deductions">
+  <meta name="theme-color" content="#171C21" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#EEF1F4" media="(prefers-color-scheme: light)">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="inhand">
+  <meta property="og:title" content="inhand — CTC to in-hand salary calculator, every deduction cited">
+  <meta property="og:description" content="Your offer letter decoded line by line — EPF, EPS, gratuity, professional tax and TDS, each citing its statutory rule. AY 2026-27. Your salary never leaves this browser.">
+  <meta property="og:url" content="https://sreenivas-sadhu-prabhakara.github.io/inhand/">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://sreenivas-sadhu-prabhakara.github.io/inhand/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="inhand — CTC steps down through statutory deductions to one tangerine in-hand figure">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="inhand — CTC to in-hand salary calculator, every deduction cited">
+  <meta name="twitter:description" content="Your offer letter decoded line by line, every deduction citing its statutory rule. AY 2026-27. Private by construction.">
+  <meta name="twitter:image" content="https://sreenivas-sadhu-prabhakara.github.io/inhand/og-image.png">
+  <meta name="twitter:image:alt" content="inhand — the salary waterfall from CTC to in-hand">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "inhand",
+    "description": "A CTC-to-in-hand salary calculator for India that produces an honest, line-by-line monthly breakdown where every deduction cites the statutory rule it comes from. Models the new and old tax regimes for AY 2026-27. Runs entirely in your browser.",
+    "url": "https://sreenivas-sadhu-prabhakara.github.io/inhand/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any (modern web browser)",
+    "browserRequirements": "Requires a modern web browser with JavaScript enabled.",
+    "isAccessibleForFree": true,
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+    "license": "https://opensource.org/licenses/MIT",
+    "author": { "@type": "Person", "name": "Sreenivas Sadhu Prabhakara" },
+    "softwareVersion": "0.1.0",
+    "featureList": [
+      "CTC to monthly in-hand salary breakdown",
+      "Every deduction cites its statutory rule (EPF, EPS, gratuity, PT, TDS)",
+      "New and old tax regime for AY 2026-27 (FY 2025-26)",
+      "State professional-tax slabs with verified-on dates and manual override",
+      "Side-by-side comparison of two offers",
+      "Printable payslip-style breakdown and CSV export",
+      "Runs 100% offline — your salary never leaves the browser"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is in-hand salary calculated from CTC in India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In-hand = monthly gross cash minus your statutory deductions. From CTC you first remove employer costs that are not cash to you (employer EPF and gratuity accrual). The remaining cash is basic, HRA and allowances; from that you subtract your own EPF (12% of basic), professional tax, and monthly TDS (annual income tax divided by 12). inhand shows every line with the rule behind it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What tax year does this calculator use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AY 2026-27 (FY 2025-26) only, dated on screen. It models both the new regime (default) and the old regime, including the Section 87A rebate, standard deduction, surcharge with marginal relief, and 4% cess. Other years are not modelled."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does inhand send my salary anywhere?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The page's Content-Security-Policy sets connect-src to 'none', so the browser itself blocks every network request. The salary you type physically cannot leave your device. Saved offers live only in this browser's localStorage; the CSV and print exports are your only backup."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does my payslip differ from this estimate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "inhand is an estimate, not a payslip. Employer CTC structures vary, TDS is shown as annual tax divided by 12 rather than the exact Section-192 month-by-month computation, and professional-tax slabs change by state. Edit the components to match your offer letter and verify against your first payslip."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#result">Skip to my in-hand figure</a>
+
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="eyebrow">CTC decoded &middot; every deduction cited &middot; private by construction</p>
+      <h1 class="hero__title">CTC to In-Hand Salary Calculator<span class="hero__sub"> — Every Deduction, With the Rule Behind It</span></h1>
+      <p class="hero__lede">
+        Paste the CTC from your offer letter and see the honest monthly in-hand — EPF, EPS, gratuity,
+        professional tax and TDS, each line showing the statutory rule it comes from. Works for
+        job-switchers comparing two offers and freshers decoding a first letter. Home loan, car —
+        it is all just numbers, and they never leave this browser.
+      </p>
+      <p class="hero__ay" id="ayBadge"></p>
+    </div>
+  </header>
+
+  <main>
+    <form class="controls" id="controls" novalidate>
+      <div class="grid">
+        <!-- LEFT: inputs -->
+        <section class="col col--in">
+          <fieldset class="panel">
+            <legend class="panel__legend">Your offer</legend>
+            <div class="offer-tabs" role="radiogroup" aria-label="Which offer to edit">
+              <label class="seg"><input type="radio" name="activeOffer" value="A" checked><span>Offer A</span></label>
+              <label class="seg"><input type="radio" name="activeOffer" value="B"><span>Offer B</span></label>
+              <button type="button" class="btn btn--ghost btn--sm" id="compareToggle" aria-pressed="false">Compare A vs B</button>
+            </div>
+
+            <div class="field">
+              <label for="ctc">Annual CTC (₹)</label>
+              <input type="number" id="ctc" name="ctc" min="0" step="1000" value="1800000" inputmode="numeric" autocomplete="off">
+              <p class="field__hint" id="ctcWords" aria-live="polite"></p>
+            </div>
+
+            <div class="field field--split">
+              <div>
+                <label for="basicPct">Basic (% of CTC)</label>
+                <input type="number" id="basicPct" name="basicPct" min="1" max="100" step="1" value="40" inputmode="numeric">
+                <p class="field__hint">Market convention; edit to match your letter.</p>
+              </div>
+              <div>
+                <label for="hraPct">HRA (% of Basic)</label>
+                <input type="number" id="hraPct" name="hraPct" min="0" max="100" step="1" value="50" inputmode="numeric">
+                <p class="field__hint">Special allowance auto-balances.</p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="panel">
+            <legend class="panel__legend">Tax regime</legend>
+            <div class="segmented" role="radiogroup" aria-label="Tax regime">
+              <label class="seg"><input type="radio" name="regime" value="new" checked><span>New regime</span></label>
+              <label class="seg"><input type="radio" name="regime" value="old"><span>Old regime</span></label>
+            </div>
+            <div id="oldOnly" hidden>
+              <div class="field field--split">
+                <div>
+                  <label for="rent">Monthly rent (₹)</label>
+                  <input type="number" id="rent" name="rent" min="0" step="500" value="0" inputmode="numeric">
+                </div>
+                <div>
+                  <label class="metro-lbl">City type</label>
+                  <div class="segmented segmented--sm" role="radiogroup" aria-label="Metro or non-metro">
+                    <label class="seg"><input type="radio" name="metro" value="metro" checked><span>Metro</span></label>
+                    <label class="seg"><input type="radio" name="metro" value="nonmetro"><span>Non-metro</span></label>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <label for="sec80c">Section 80C (aggregate, ₹/yr)</label>
+                <input type="number" id="sec80c" name="sec80c" min="0" step="5000" value="0" inputmode="numeric">
+                <p class="field__hint">Capped at ₹1,50,000. Old regime only; no other Chapter VI-A modelled.</p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="panel">
+            <legend class="panel__legend">Professional tax</legend>
+            <div class="field">
+              <label for="ptState">State</label>
+              <select id="ptState" name="ptState"></select>
+              <p class="field__hint" id="ptNote"></p>
+            </div>
+            <div class="field" id="ptOverrideWrap" hidden>
+              <label for="ptOverride">Manual PT override (₹/yr)</label>
+              <input type="number" id="ptOverride" name="ptOverride" min="0" max="2500" step="10" value="0" inputmode="numeric">
+              <p class="field__hint">For unverified states or recent amendments. Capped at ₹2,500 (Article 276).</p>
+            </div>
+            <label class="toggle"><input type="checkbox" name="isWoman"><span>Employee is a woman (some states exempt lower slabs)</span></label>
+          </fieldset>
+
+          <fieldset class="panel">
+            <legend class="panel__legend">View</legend>
+            <div class="segmented segmented--sm" role="radiogroup" aria-label="Monthly or annual view">
+              <label class="seg"><input type="radio" name="view" value="monthly" checked><span>Monthly</span></label>
+              <label class="seg"><input type="radio" name="view" value="annual"><span>Annual</span></label>
+            </div>
+            <label class="toggle"><input type="checkbox" name="grouping"><span>Use plain 1,000 grouping (instead of lakh/crore)</span></label>
+          </fieldset>
+
+          <div class="save-row">
+            <input type="text" id="scenName" placeholder="Name this offer (e.g. TCS Bangalore)" maxlength="60" autocomplete="off" aria-label="Scenario name">
+            <button type="button" class="btn btn--ghost btn--sm" id="saveBtn">Save</button>
+            <select id="loadSel" aria-label="Load saved offer"><option value="">Load saved…</option></select>
+          </div>
+        </section>
+
+        <!-- RIGHT: results -->
+        <section class="col col--out" id="result" aria-live="polite">
+          <div class="headline-card" id="headlineCard">
+            <p class="headline-card__label" id="hlLabel">Monthly in-hand</p>
+            <p class="headline-card__figure" id="hlFigure">—</p>
+            <p class="headline-card__sub" id="hlSub"></p>
+            <div class="reconcile" id="reconcile" hidden></div>
+          </div>
+
+          <div class="waterfall" aria-labelledby="wfHeading">
+            <h2 id="wfHeading" class="section-h">The salary waterfall</h2>
+            <div class="waterfall__wrap">
+              <svg id="waterfall" class="waterfall__svg" viewBox="0 0 720 260" role="img" aria-label="Waterfall from CTC stepping down through deductions to in-hand"></svg>
+            </div>
+          </div>
+
+          <div class="ledger" aria-labelledby="ledgerHeading">
+            <div class="ledger__head">
+              <h2 id="ledgerHeading" class="section-h">Derivation ledger</h2>
+              <div class="ledger__actions">
+                <button type="button" class="btn btn--ghost btn--sm" id="printBtn">Print payslip</button>
+                <button type="button" class="btn btn--ghost btn--sm" id="csvBtn">Export CSV</button>
+              </div>
+            </div>
+            <table class="ltab" id="ledgerTable">
+              <thead>
+                <tr><th scope="col">Line</th><th scope="col" class="num">Amount</th><th scope="col">Rule</th></tr>
+              </thead>
+              <tbody id="ledgerBody"></tbody>
+            </table>
+            <p class="ledger__hint">Tap any statutory rule to see its citation and verified-on date.</p>
+          </div>
+
+          <div class="compare" id="compareCard" hidden>
+            <h2 class="section-h">Offer A vs Offer B</h2>
+            <div id="compareBody"></div>
+          </div>
+        </section>
+      </div>
+    </form>
+  </main>
+
+  <footer class="foot">
+    <div class="foot__inner">
+      <p class="foot__disclaimer">
+        <strong>An estimate, not a payslip — not tax, legal or investment advice.</strong>
+        inhand models AY 2026-27 (FY 2025-26) only. Employer CTC structures vary; TDS is shown as
+        annual tax &divide; 12, not the exact Section-192 computation; professional-tax slabs change by
+        state and carry a verified-on date with a manual override. Gratuity is an employer-cost accrual
+        (4.81% of basic), normally payable only after 5 years of continuous service — not monthly cash.
+        Edit the components to match your offer letter and verify against your first payslip and a professional.
+      </p>
+      <p class="foot__meta">
+        <span>Runs 100% offline</span><span class="foot__dot">&middot;</span>
+        <span>Your salary never leaves this browser</span><span class="foot__dot">&middot;</span>
+        <span id="verifiedOn"></span><span class="foot__dot">&middot;</span>
+        <span>MIT&nbsp;License</span><span class="foot__dot">&middot;</span>
+        <span>&copy; 2026 Sreenivas&nbsp;Sadhu&nbsp;Prabhakara</span>
+      </p>
+    </div>
+  </footer>
+
+  <dialog id="citeDialog" class="cite">
+    <form method="dialog">
+      <h3 id="citeTitle" class="cite__title"></h3>
+      <p id="citeBody" class="cite__body"></p>
+      <p id="citeSrc" class="cite__src"></p>
+      <menu><button class="btn btn--ghost btn--sm" value="close">Close</button></menu>
+    </form>
+  </dialog>
+
+  <script src="data/corpus.js" defer></script>
+  <script src="data/engine.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

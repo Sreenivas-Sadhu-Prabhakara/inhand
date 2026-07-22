@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  :root {
+    --bg: #171C21; --panel: #1E252C; --ink: #E5EAEE; --muted: #AFBCC6;
+    --steel: #8FA3B0; --line: #313B44; --tang: #FF8A3D;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative; font-family: var(--sans); color: var(--ink);
+    background:
+      radial-gradient(900px 520px at 88% 108%, rgba(255,138,61,0.12), transparent 60%),
+      linear-gradient(180deg, #1b222a 0%, #171C21 100%);
+  }
+  .frame { position: absolute; inset: 0; padding: 76px 84px; display: flex; flex-direction: column; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 22px; }
+  .mark { width: 76px; height: 76px; border-radius: 18px; background: var(--panel); border: 1px solid var(--line); padding: 12px; }
+  .wordmark { font-size: 60px; font-weight: 800; letter-spacing: -0.04em; }
+  .headline { max-width: 760px; }
+  .headline h1 { font-size: 52px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+  .headline .hl { color: var(--tang); }
+  .headline p { margin-top: 20px; font-size: 27px; font-weight: 500; color: var(--muted); line-height: 1.34; max-width: 30ch; }
+
+  /* the salary waterfall — hero visual on the right */
+  .wf { position: absolute; right: 84px; top: 150px; width: 420px; height: 300px; }
+  .bar { position: absolute; bottom: 0; border-radius: 6px 6px 0 0; }
+  .b1 { left: 0;   height: 260px; width: 74px; background: var(--ink); }
+  .b2 { left: 96px;  height: 200px; width: 74px; background: var(--steel); }
+  .b3 { left: 192px; height: 150px; width: 74px; background: var(--steel); }
+  .b4 { left: 288px; height: 104px; width: 74px; background: var(--steel); }
+  .b5 { left: 348px; height: 158px; width: 74px; background: var(--tang); box-shadow: 0 0 44px -6px rgba(255,138,61,0.55); }
+  .conn { position: absolute; height: 2px; background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 12px); }
+  .cap { position: absolute; font-family: var(--mono); font-size: 17px; font-weight: 700; }
+  .cap-in { color: var(--tang); right: 0; top: 118px; }
+  .cap-ctc { color: var(--muted); left: 0; top: 22px; }
+
+  .chips { display: flex; gap: 12px; align-items: center; }
+  .chip { padding: 11px 19px; border: 1px solid var(--line); border-radius: 999px; background: rgba(20,26,32,0.5); font-size: 22px; font-weight: 600; color: var(--muted); }
+  .chip .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 9px; vertical-align: middle; }
+  .chip .dot--tang { background: var(--tang); }
+  .chip .dot--steel { background: var(--steel); }
+</style>
+</head>
+<body>
+  <div class="wf" aria-hidden="true">
+    <span class="cap cap-ctc">CTC</span>
+    <span class="conn" style="left:74px;  bottom:200px; width:22px;"></span>
+    <span class="conn" style="left:170px; bottom:150px; width:22px;"></span>
+    <span class="conn" style="left:266px; bottom:104px; width:22px;"></span>
+    <span class="bar b1"></span>
+    <span class="bar b2"></span>
+    <span class="bar b3"></span>
+    <span class="bar b4"></span>
+    <span class="bar b5"></span>
+    <span class="cap cap-in">in-hand</span>
+  </div>
+
+  <div class="frame">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="4"  y="6"  width="4.5" height="21" rx="1.4" fill="#8FA3B0"/>
+        <rect x="11" y="11" width="4.5" height="16" rx="1.4" fill="#8FA3B0"/>
+        <rect x="18" y="16" width="4.5" height="11" rx="1.4" fill="#8FA3B0"/>
+        <rect x="25" y="19.5" width="4.5" height="7.5" rx="1.4" fill="#FF8A3D"/>
+      </svg>
+      <span class="wordmark">inhand</span>
+    </div>
+
+    <div class="headline">
+      <h1>CTC to <span class="hl">in-hand</span>,<br>every deduction cited.</h1>
+      <p>Your offer letter decoded line by line — and your salary never leaves the browser.</p>
+    </div>
+
+    <div class="chips">
+      <span class="chip"><span class="dot dot--steel"></span>AY 2026-27</span>
+      <span class="chip"><span class="dot dot--tang"></span>every rule cited</span>
+      <span class="chip"><span class="dot dot--steel"></span>private by construction</span>
+    </div>
+  </div>
+</body>
+</html>

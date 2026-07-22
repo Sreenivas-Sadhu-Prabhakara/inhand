@@ -17,7 +17,7 @@
   --steel:     #55606C;   /* secondary steel, AA (≥4.5:1) on --bg for small hints */
   --line:      #D3DAE1;
   --line2:     #C2CBD4;
-  --tangerine: #C8571B;   /* AA-safe deep tangerine for the in-hand figure on light */
+  --tangerine: #B04810;   /* deep tangerine — AA (≥4.5:1) for small text on panel/panel2/bg in light */
   --tangerine-bright: #F5762B; /* used only on dark blocks / large fills */
   --on-tang:   #FFFFFF;
   --good:      #1F7A4D;
